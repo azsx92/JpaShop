@@ -27,3 +27,14 @@ testImplementation("org.junit.vintage:junit-vintage-engine") {
 - thymeleaf 공식 사이트: https://www.thymeleaf.org/
 - 스프링 공식 튜토리얼: https://spring.io/guides/gs/serving-web-content/
 - 스프링부트 메뉴얼: https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/ boot-features-developing-web-applications.html#boot-features-spring-mvc-template-engines
+
+4.H2 데이터베이스 설치
+개발이나 테스트 용도로 가볍고 편리한 DB, 웹 화면 제공
+[https://www.h2database.com]()
+- 다운로드 및 설치
+  - 스프링 부트 2.x를 사용하면 **1.4.200 버전**을 다운로드 받으면 된다.
+  - 스프링 부트 3.x를 사용하면 **2.1.214 버전 이상** 사용해야 한다. 
+- 데이터베이스 파일 생성 방법
+  - `jdbc:h2:~/jpashop` (최소 한번)
+  - `~/jpashop.mv.db` 파일 생성 확인 
+  - 이후 부터는 `jdbc:h2:tcp://localhost/~/jpashop` 이렇게 접속
