@@ -58,3 +58,30 @@ logging.level: #띄어쓰기 없음
   org.hibernate.SQL: debug #띄어쓰기 2칸
 # org.hibernate.type: trace #띄어쓰기 2칸
 ```
+
+- Entity, Repository 동작 확인
+- jar 빌드해서 동작 확인
+
+### 쿼리 파라미터 로그 남기기
+
+- 로그에 다음을 추가하기: SQL 실행 파라미터를 로그로 남긴다.
+- **주의! 스프링 부트 3.x를 사용한다면 영상 내용과 다르기 때문에 다음 내용을 참고하자.**
+  - 스프링 부트 2.x, hibernate5 
+    - `org.hibernate.type: trace`
+    
+  - 스프링 부트 3.x, hibernate6 
+    -  `org.hibernate.orm.jdbc.bind: trace`
+        외부 라이브러리 사용
+        https://github.com/gavlyukovskiy/spring-boot-data-source-decorator
+
+스프링 부트를 사용하면 이 라이브러리만 추가하면 된다.
+```
+implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
+```
+참고: 쿼리 파라미터를 로그로 남기는 외부 라이브러리는 시스템 자원을 사용하므로, 개발 단계에서는 편하게 사 용해도 된다. 하지만 운영시스템에 적용하려면 꼭 성능테스트를 하고 사용하는 것이 좋다.
+쿼리 파라미터 로그 남기기 - 스프링 부트 3.0
+스프링 부트 3.0 이상을 사용하면 라이브러리 버전을 1.9.0 이상을 사용해야 한다.
+```
+implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
+```
+  
