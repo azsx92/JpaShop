@@ -38,3 +38,23 @@ testImplementation("org.junit.vintage:junit-vintage-engine") {
   - `jdbc:h2:~/jpashop` (최소 한번)
   - `~/jpashop.mv.db` 파일 생성 확인 
   - 이후 부터는 `jdbc:h2:tcp://localhost/~/jpashop` 이렇게 접속
+5. yml 띄어쓰기 주의
+```yml
+spring: #띄어쓰기 없음 
+  datasource: #띄어쓰기 2칸
+   url: jdbc:h2:tcp://localhost/~/jpashop #4칸 username: sa
+   password:
+   driver-class-name: org.h2.Driver
+
+  jpa: #띄어쓰기 2칸 
+    hibernate: #띄어쓰기 4칸
+      ddl-auto: create #띄어쓰기 6칸 
+    properties: #띄어쓰기 4칸
+      hibernate: #띄어쓰기 6칸 
+#       show_sql: true #띄어쓰기 8칸
+        format_sql: true #띄어쓰기 8칸
+
+logging.level: #띄어쓰기 없음 
+  org.hibernate.SQL: debug #띄어쓰기 2칸
+# org.hibernate.type: trace #띄어쓰기 2칸
+```
