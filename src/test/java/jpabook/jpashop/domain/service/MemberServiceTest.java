@@ -35,8 +35,21 @@ public class MemberServiceTest {
     @Test
     public void 중복_회원_예외() throws Exception {
         //given
+        Member member = new Member();
+        member.setUsername("kim");
+        Member member2 = new Member();
+        member2.setUsername("kim");
 
         //when
+        memberService.join(member);
+
+        try {
+        memberService.join(member2); //예외가 발생해야한다.
+        } catch (IllegalStateException e){
+            return;
+        }
+
         //then
+        fail("예외가 발생해야 한다.");
     }
 }
