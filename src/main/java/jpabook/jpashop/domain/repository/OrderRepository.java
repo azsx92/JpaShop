@@ -28,7 +28,7 @@ public class OrderRepository {
     /**
      * JPQL
      * */
-     public List<Order> findAll(OrderSearch orderSearch) {
+     public List<Order> findAllByString(OrderSearch orderSearch) {
         //JPQL
          String jpql = "select o from Order o join o.member m";
          boolean isFirstCondition = true;
