@@ -123,3 +123,4 @@ implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
   - web
 
 **개발 순서: 서비스, 리포지토리 계층을 개발하고, 테스트 케이스를 작성해서 검증, 마지막에 웹 계층 적용**
+
