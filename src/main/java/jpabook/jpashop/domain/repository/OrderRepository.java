@@ -28,7 +28,7 @@ public class OrderRepository {
     /**
      * JPQL
      * */
-     public List<Order> findAllByString(OrderSearch orderSearch) {
+     public List<Order> findAll(OrderSearch orderSearch) {
         //JPQL
          String jpql = "select o from Order o join o.member m";
          boolean isFirstCondition = true;
@@ -52,7 +52,7 @@ public class OrderRepository {
              } else {
                  jpql += " and";
              }
-             jpql += " m.name like :name";
+             jpql += " m.username like :username";
          }
 
          TypedQuery<Order> query = em.createQuery(jpql, Order.class)
@@ -62,7 +62,7 @@ public class OrderRepository {
              query = query.setParameter("status", orderSearch.getOrderStatus());
          }
          if (StringUtils.hasText(orderSearch.getMemberName())) {
-             query = query.setParameter("name", orderSearch.getMemberName());
+             query = query.setParameter("username", orderSearch.getMemberName());
          }
          return query.getResultList();
      }
